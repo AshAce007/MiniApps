@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Calculator</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel id="background" style="background-color: burlywood">
+                <p:panel id="calculatorPanel" header="Calculator" style="left:50%;width:30%" toggleable="true">
+                    <p:messages id="msg"/>
+                        <p:inputTextarea placeholder="IDEAL" value="#{calcBean.text}" style="width: 100%;font-family:  monospace; font-variant-numeric:  slashed-zero"/>
+                        
+                    <p:panelGrid columns="4" style="width: 100%; border: hidden">
+                        <p:commandButton update="calculatorPanel" value="1" actionListener="#{calcBean.clickedOne()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="2" actionListener="#{calcBean.clickedTwo()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="3" actionListener="#{calcBean.clickedThree()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="+" actionListener="#{calcBean.clickedPlus()}"></p:commandButton>
+                    
+                        <p:commandButton update="calculatorPanel" value="4" actionListener="#{calcBean.clickedFour()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="5" actionListener="#{calcBean.clickedFive()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="6" actionListener="#{calcBean.clickedSix()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="-" actionListener="#{calcBean.clickedMinus()}"></p:commandButton>
+                    
+                        <p:commandButton update="calculatorPanel" value="7" actionListener="#{calcBean.clickedSeven()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="8" actionListener="#{calcBean.clickedEight()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="9" actionListener="#{calcBean.clickedNine()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="*" actionListener="#{calcBean.clickedMul()}"></p:commandButton>
+                    
+                        <p:commandButton update="calculatorPanel" value="0" actionListener="#{calcBean.clickedZero()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="C" actionListener="#{calcBean.screenClear()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="=" actionListener="#{calcBean.clickEquals()}"></p:commandButton>
+                        <p:commandButton update="calculatorPanel" value="/" actionListener="#{calcBean.clickedDiv()}"></p:commandButton>
+                        
+                        <p:commandButton update="calculatorPanel" value="." actionListener="#{calcBean.clickedPoint()}"></p:commandButton>
+                        <p:commandButton value="sin"></p:commandButton>
+                        <p:commandButton value="cos"></p:commandButton>
+                        <p:commandButton value="tan"></p:commandButton>
+                    </p:panelGrid><br/>
+                </p:panel>
+            </p:panel>
+        </h:form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js" type="text/javascript"></script>
+        <script src="design.js" type="text/javascript"></script>
+    </h:body>
+</html>
+
