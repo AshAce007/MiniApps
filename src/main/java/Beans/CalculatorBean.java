@@ -19,9 +19,9 @@ import my.calc.Calculation;
 public class CalculatorBean implements Serializable {
     private static double result = 0;
     private static int counter = 0;
-    private static String operators = ""; // should not use static.... {issue}
+    public static String operators = ""; // should not use static.... {issue}
     
-    private String text="0";
+    private String text="";
 
     
     public String getText() {
@@ -86,7 +86,7 @@ public class CalculatorBean implements Serializable {
     
     public void clickedPlus() {
         counter++;
-        if(counter<=1)
+        if(counter==1)
             result = Double.parseDouble(text);
         else {
             result = result + Double.parseDouble(text);
@@ -98,7 +98,7 @@ public class CalculatorBean implements Serializable {
     
     public void clickedMinus() {
         counter++;
-        if(counter<=1) {
+        if(counter==1) {
             result = Double.parseDouble(text);
         }else {
             result = result -  Double.parseDouble(text);
@@ -109,7 +109,7 @@ public class CalculatorBean implements Serializable {
     
     public void clickedMul() {
         counter++;
-        if(counter<=1)
+        if(counter==1)
             result= Double.parseDouble(text);
         else {
             result = result * Double.parseDouble(text);
@@ -120,7 +120,7 @@ public class CalculatorBean implements Serializable {
     
     public void clickedDiv() {
         counter++;
-        if(counter<=1)
+        if(counter==1)
             result = Double.parseDouble(text);
         else{
             result = result / Double.parseDouble(text);

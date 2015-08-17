@@ -1,0 +1,153 @@
+
+      
+            element.style {
+    }
+.ui-panel .ui-panel-titlebar {
+    padding: 0.5em 1em 0.3em;
+}
+
+.ui-corner-all {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.ui-widget-header {
+    border: 1px solid #8E8C8C;
+    background: #1D0505 url("/ThesisQA/faces/javax.faces.resource/images/ui-bg_highlight-soft_100_c4c4c4_1x100.png?ln=primefaces-aristo") 50% 50% repeat-x;
+    background: #c4c4c4 linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    background: rgb(173, 3, 3) -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.8)), to(rgba(255,255,255,0)));
+    background: #c4c4c4 -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    color: #1D1B1B;
+    font-weight: bold;
+    font-variant-caps:  all-small-caps;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
+}
+user agent stylesheetdiv {
+    display: block;
+}
+Inherited from 
+.ui-widget .ui-widget {
+    font-size: 1em;
+}
+.ui-widget-content {
+    border: 1px solid #a8a8a8;
+    background: #ffffff;
+    color: #4f4f4f;
+}
+.ui-widget {
+    font-family: Arial,sans-serif;
+    font-size: 1.1em;
+}
+Inherited from 
+.ui-widget-content {
+    border: 1px solid #a8a8a8;
+    background: #ffffff;
+    color: #4f4f4f;
+}
+Inherited from 
+.ui-widget-content {
+    border: 1px solid #a8a8a8;
+    background: #ffffff;
+    color: #4f4f4f;
+}
+.ui-widget {
+    font-family: Arial,sans-serif;
+    font-size: 1.1em;
+}
+Pseudo ::after element
+.ui-helper-clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#footer a{
+     text-decoration: none;
+}
+
+#operation {
+    position: relative;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 8px;
+    left: 6px;
+    width: 30%;
+    height: auto;
+    font-family: monospace;
+    font-variant-caps: all-small-caps;
+    font-size: 100%;
+    font-weight: bold;
+    border-width: 2px;
+    background-color: white;
+}
+
+#bitbucket a {
+    position: fixed;
+    top: 0%;
+    right: 20%;
+    text-decoration:  none;
+    font-family: monospace;
+    font-variant-caps: all-small-caps;
+    font-size: 100%;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+    border-radius: 15px 50px;
+    background: #8AC007;
+    padding: 20px; 
+    width: 200px;
+    height: 30px; 
+}
+
+
+#myJS {
+        visibility: hidden;
+        position: fixed;
+        left: 20%;
+        bottom: auto;
+	-moz-box-shadow: 0px 10px 14px -6px #276873;
+	-webkit-box-shadow: 0px 10px 14px -6px #276873;
+	box-shadow: 0px 10px 14px -6px #276873;
+	background-color:#599bb3;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px 30px 20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:16px;
+	font-weight:bold;
+	padding:13px 34px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+        
+        transform:rotate(291deg);
+        -ms-transform:rotate(291deg);
+        -moz-transform:rotate(291deg);
+        -webkit-transform:rotate(291deg);
+        -o-transform:rotate(291deg);
+}
+.myJS:hover {
+	background-color:#408c99;
+}
+#myJS:active {
+	position:relative;
+	top:1px;
+}
+
+#msg{
+    position: fixed;
+    font-family: monospace;
+    font-variant-caps: all-small-caps;
+    font-size: 100%;
+    font-weight: bold;
+    bottom: 0%;
+}
+
+#msg a {
+    text-decoration: none;
+    color: #ff9999;
+}
