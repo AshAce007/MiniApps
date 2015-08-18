@@ -17,12 +17,13 @@ import my.calc.Calculation;
 @ManagedBean(name="calcBean")
 @RequestScoped
 public class CalculatorBean implements Serializable {
-    private static double result = 0;
+    private  static double number1;
+    private  static double number2;
+    private static double result=0;
     private static int counter = 0;
     
     private static boolean plusClicked = false, minusClicked = false, mulClicked = false, divClicked = false;
-    
-    private String text="0";
+    private String text="0.0";
     private String msg="";
     
     public String getText() {
@@ -41,6 +42,20 @@ public class CalculatorBean implements Serializable {
         this.msg = msg;
     }
     
+    /**
+     * 
+     * @throws java.lang.Exception
+    */
+    public void minusIssue() throws Exception {
+        if(minusClicked) text = "-"+text;
+    }
+    
+    public static boolean clearScreen() {
+        if(counter==1)
+            return true;
+        else
+            return false;
+    }
     
     //Button number click events
     /*===========================*/
@@ -108,14 +123,13 @@ public class CalculatorBean implements Serializable {
     
     public void clickedPlus() throws Exception {
         msg = msg + " + ";
-        counter++;
-        if(counter<=1)
-            result = Double.parseDouble(text);
-        else {
-            result = result + Double.parseDouble(text);
-        }
-        text = "";
+        if(clearScreen() && minusClicked==true)
+            number1 = -Double.parseDouble(text);
+        else
+            number1 = Double.parseDouble(text);
         
+        text = "";
+        counter++;
         plusClicked = true;
         minusClicked = mulClicked = divClicked = false;
     }
@@ -123,40 +137,39 @@ public class CalculatorBean implements Serializable {
     //some issues have here
     public void clickedMinus() throws Exception {
         msg = msg + " - ";
-        counter++;
-        if(counter<=1) {
-            result = Double.parseDouble(text) + 0;
-        }else {
-            result = result -  Double.parseDouble(text);
-        }
-        text = "";
+        if(clearScreen() && minusClicked==true)
+            number1 = -Double.parseDouble(text);
+        else
+            number1 = Double.parseDouble(text);
         
+        text = "";
+        counter++;
         minusClicked = true;
         plusClicked = mulClicked = divClicked = false;
     }
     
     public void clickedMul() throws Exception {
         msg = msg + " * ";
-        counter++;
-        if(counter<=1){
-                result= Double.parseDouble(text);
-        }else {
-            result = result * Double.parseDouble(text);
-        }
+        if(clearScreen() && minusClicked==true)
+            number1 = -Double.parseDouble(text);
+        else
+            number1 = Double.parseDouble(text);
+        
         text = "";
+        counter++;
         mulClicked = true;
         minusClicked = plusClicked = divClicked = false;
     }
     
     public void clickedDiv() throws Exception {
         msg = msg + " / ";
-        counter++;
-        if(counter<=1)
-            result = Double.parseDouble(text);
-        else{
-            result = result / Double.parseDouble(text);
-        }
+        if(clearScreen() && minusClicked==true)
+            number1 = -Double.parseDouble(text);
+        else
+            number1 = Double.parseDouble(text);
+        
         text = "";
+        counter++;
         divClicked = true;
         minusClicked = mulClicked = plusClicked = false;
     }
@@ -174,21 +187,26 @@ public class CalculatorBean implements Serializable {
     }
     
     public void clickEquals() throws Exception {
-        counter++;
+        number2 = Double.parseDouble(text);
         if(plusClicked){
-            text = Double.toString(Calculation.getInstance().addition(result, Double.parseDouble(text)));
+            result = (number1 + number2);
+            text = Double.toString(result);
             msg = msg + "; output is: "+text+"\n";
             counter=0;
+            
         } else if(minusClicked){
-            text = Double.toString(Calculation.getInstance().subtraction(result, Double.parseDouble(text)));
+            result = (number1 - number2);
+            text = Double.toString(result);
             msg = msg + "; output is: "+text+"\n";
             counter = 0;
         }else if(mulClicked){
-            text = Double.toString(Calculation.getInstance().multiplication(result, Double.parseDouble(text)));
+            result = (number1 * number2);
+            text = Double.toString(result);
             msg = msg + "; output is: "+text+"\n";
             counter = 0;
         }else if(divClicked){
-            text = Double.toString(Calculation.getInstance().division(result, Double.parseDouble(text)));
+            result = (number1 / number2);
+            text = Double.toString(result);
             msg = msg + "; output is: "+text+"\n";
             counter = 0;
         }else
