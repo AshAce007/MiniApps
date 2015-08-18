@@ -43,15 +43,18 @@
                         <p:commandButton value="+/-" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
                     </p:panelGrid>
                     <p:separator/>
-                    <div id="footer"><a href='https://de.linkedin.com/in/ashique600'>Ashique's ;) <i class="fa fa-linkedin"></i></a></div>
+                        <div style="font-weight: bold; font-size: 100%;font-variant-caps:  all-small-caps">Operation List:</div>
+                        <p:inputTextarea id="operationList" value="#{calcBean.msg}" style="overflow-y: scroll;padding-top: 5px; border-color:  #99ccff; width: 97%;font-family:  monospace; font-variant-caps:  all-small-caps; font-size: medium; top: 7px; color: black; border-radius: 5px;border-width: 2px"></p:inputTextarea>
+                    <p:separator/>
+                        <div id="footer"><a href='https://de.linkedin.com/in/ashique600'>Ashique's ;) <i class="fa fa-linkedin"></i></a></div>
                 </p:panel><br/>
-                <div id="operation">Operation List: </div>
+                
                 <div id="CurrencyAnalysis" style="border-color: black; position: fixed;top: 0% ; left: 40%;">
                     <embed width="700px" height="600px" src="http://currencyanalysis-apps2146.rhcloud.com/" />
                 </div>
                 <a id="myJS" href="http://thesisqa-appshouse.rhcloud.com/">My JavaScript Enthusiasm is here.</a>
                 <p id="bitbucket"><a href="https://chowdhury_ashique@bitbucket.org/chowdhury_ashique/currencyanalysis_beta.git">Find this on my BitBucket</a></p>
-                <p id="msg">click on the object to join my JavaScript enthusiasm :) <br/> If you fail don't worry: <a href="http://thesisqa-appshouse.rhcloud.com/">Click HERE</a></p>
+                <p id="msg">click on the object to join my JavaScript enthusiasm :) <br/> If you fail don't worry: <a href="http://thesisqa-appshouse.rhcloud.com/">Click HERE</a> / <a id="hideBar">Ignore.</a></p>
             </p:panel>
         </h:form>
         

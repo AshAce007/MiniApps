@@ -68,19 +68,18 @@ Pseudo ::after element
 }
 
 #operation {
-    position: relative;
     border-color: black;
     border-width: 5px;
     border-radius: 8px;
     left: 6px;
-    width: 30%;
+    width: 97%;
     height: auto;
     font-family: monospace;
     font-variant-caps: all-small-caps;
     font-size: 100%;
     font-weight: bold;
     border-width: 2px;
-    background-color: white;
+    
 }
 
 #bitbucket a {
@@ -114,7 +113,6 @@ Pseudo ::after element
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 	border-radius:8px 30px 20px;
-	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Courier New;
