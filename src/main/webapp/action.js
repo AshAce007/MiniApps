@@ -21,7 +21,7 @@ var movingBar = function() { // moving bar on the chart
         posX = Math.random()*450+400;
         //posY = (Math.random()*(50)+(10));
         document.getElementById("myJS").style.left = posX+"px";
-        $("#myJS").css("top",(Math.random()*(-30)+(-20))+"px");
+        $("#myJS").css("bottom",(Math.random()*(150)+(90))+"px");
     },Math.random()*700+500);
     
     $("#hideBar").click(function() {

@@ -8,7 +8,6 @@ package Beans;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import my.calc.Calculation;
 
 /**
  *
@@ -23,7 +22,7 @@ public class CalculatorBean implements Serializable {
     private static int counter = 0;
     
     private static boolean plusClicked = false, minusClicked = false, mulClicked = false, divClicked = false;
-    private String text="0.0";
+    private String text="0";
     private String msg="";
     
     public String getText() {
@@ -121,6 +120,11 @@ public class CalculatorBean implements Serializable {
     //Operation Buttons
     /*==================*/
     
+    public void backClicked() throws Exception {
+        text = text.substring(0, text.length()-1);
+        msg = ";the number has been edited to: "+text+"\n";
+    }
+    
     public void clickedPlus() throws Exception {
         msg = msg + " + ";
         if(clearScreen() && minusClicked==true)
@@ -174,8 +178,18 @@ public class CalculatorBean implements Serializable {
         minusClicked = mulClicked = plusClicked = false;
     }
     
-    public void plusMinus() {
-        
+    public void plusMinus() throws Exception {
+        text = Double.toString(Double.parseDouble(text)*(-1));
+        msg = msg + "The number has been reversed to: "+text+"\n";
+    }
+    
+    public void sqrt() throws Exception {
+        if(Double.parseDouble(text)<0)
+            msg = msg + "negative number is not allowed here.\n";
+        else {
+            text = Double.toString(Math.sqrt(Double.parseDouble(text)));
+            msg = msg + "The square root is: "+text+"\n";
+        }
     }
     
     public void screenClear() throws Exception {
@@ -211,5 +225,9 @@ public class CalculatorBean implements Serializable {
             counter = 0;
         }else
             msg = msg + "\nOperation Invalid. Please try again.\n";
-    }    
+    }
+    
+    public static void main(String args[]) throws Exception {
+        new CalculatorBean().backClicked();
+    }
 }

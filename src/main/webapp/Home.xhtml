@@ -38,9 +38,9 @@
                         <p:commandButton id="slash" update="calculatorPanel" value="/" actionListener="#{calcBean.clickedDiv()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         
                         <p:commandButton id="dot" update="calculatorPanel" value="." actionListener="#{calcBean.clickedPoint()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
-                        <p:commandButton value="BACK" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
-                        <p:commandButton value="SQRT" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
-                        <p:commandButton value="+/-" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
+                        <p:commandButton value="BACK" update="calculatorPanel" actionListener="#{calcBean.backClicked()}"  style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
+                        <p:commandButton value="SQRT" update="calculatorPanel" actionListener="#{calcBean.sqrt()}" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
+                        <p:commandButton value="+/-" update="calculatorPanel" actionListener="#{calcBean.plusMinus()}" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
                     </p:panelGrid>
                     <p:separator/>
                         <div style="font-weight: bold; font-size: 100%;font-variant-caps:  all-small-caps">Operation List:</div>
