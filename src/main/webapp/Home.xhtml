@@ -14,8 +14,9 @@
             <p:panel id="background" style="background-color: whitesmoke; width: 90%;height: 100%;position: absolute; left: 5%; top: 0%">
                 <p:panel id="calculatorPanel" header="CALCULATOR" style="top: 0%;background-color: #e7eff8;border-radius: 9px; font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; left:50%;width:30%" toggleable="true">
                     <p:messages id="msg"/>
-                    <p:inputTextarea id="display" disabled="false" placeholder="carry on" value="#{calcBean.text}" rows="2" cols="4" style="padding-top: 15px; border-color:  #99ccff; width: 97%;font-family:  monospace; font-variant-caps:  all-small-caps; font-size:  large; top: 15px; color: brown; border-radius: 15px;border-width: 2px"/>
-                        
+                    <p:inputTextarea id="display" disabled="false" placeholder="carry on" value="#{calcBean.text}" rows="2" cols="4" style="padding-top: 15px; border-color:  #99ccff; width: 97%;font-family:  monospace; font-variant-caps:  all-small-caps; font-size:  large; top: 15px; color: #{calcBean.fontColor}; background-color: #{calcBean.backgroundColor}; border-radius: 15px;border-width: 2px"/>
+                    <p:commandButton value="ON/OFF" update="calculatorPanel" actionListener="#{calcBean.onOff()}"  style="background-color: #d0422d;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #e7eff8;left: 9px"></p:commandButton>
+                        <p:separator/>
                         <p:panelGrid columns="4" style="width: 100%; border: hidden">
                             <p:commandButton id="one" update="calculatorPanel" value="1" actionListener="#{calcBean.clickedOne()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="two" update="calculatorPanel" value="2" actionListener="#{calcBean.clickedTwo()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px; font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>

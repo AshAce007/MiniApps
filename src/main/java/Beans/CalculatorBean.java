@@ -21,9 +21,61 @@ public class CalculatorBean implements Serializable {
     private static double result=0;
     private static int counter = 0;
     
+    private String color ;
+    private boolean error = false;
+    
     private static boolean plusClicked = false, minusClicked = false, mulClicked = false, divClicked = false;
-    private String text="0";
-    private String msg="";
+    private String text="PLEASE TURN ON THE CALCULATOR.";
+    private String msg="ACTIVATE THE CALCULATOR PLEASE...";
+    
+    /**
+     * Switch for turn on/off the calculator.
+    */
+    
+    private static boolean buttonState = false;
+    public void onOff() {
+        if(buttonState==false) {
+            buttonState = true;
+            text = "0";
+            msg = "";
+        }else {
+            buttonState = false;
+            msg = "ACTIVATE THE CALCULATOR PLEASE...";
+            text = "PLEASE TURN ON THE CALCULATOR.";
+        }
+    }
+    
+    
+    /**
+     * Background Color
+     * fontColor
+     */
+    private String backgroundColor = "";
+    private String fontColor = "";
+    
+    public String getBackgroundColor() {
+        if(buttonState==false)
+            return "black";
+        else
+            return "white";
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public String getFontColor() {
+        if(buttonState==false)
+            return "#33D422";
+        else
+            return "#333300";
+    }
+
+    public void setFontColor(String fontColor) {
+        this.fontColor = fontColor;
+    }
+    
+    
     
     public String getText() {
         return text;
@@ -40,15 +92,30 @@ public class CalculatorBean implements Serializable {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-    
+
     /**
-     * 
-     * @throws java.lang.Exception
-    */
-    public void minusIssue() throws Exception {
-        if(minusClicked) text = "-"+text;
+     * Disabled at this moment
+     * @return = color of the error
+     */
+    
+    public String getColor() {
+        if(error == true)
+            return "red";
+        else
+            return "black";
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
     
+    
+    
+    /**
+     * checking whether the screen is clear or not
+     * @return = state of the screen
+     */
+  
     public static boolean clearScreen() {
         if(counter==1)
             return true;
@@ -60,73 +127,100 @@ public class CalculatorBean implements Serializable {
     /*===========================*/
     
     public void clickedZero() throws Exception {
-       text = text + "0";
-       msg = msg + "0";
+        if(buttonState){
+            text = text + "0";
+            msg = msg + "0";
+        }
     }
     
     public void clickedOne() throws Exception {
-       text = text + "1";
-       msg = msg + "1";  
+        if(buttonState) {
+            text = text + "1";
+            msg = msg + "1";
+        }  
     }
     
     public void clickedTwo() throws Exception {
-       text = text + "2";
-       msg = msg + "2";
+        if(buttonState) {
+            text = text + "2";
+            msg = msg + "2";
+        }
     }
     
     public void clickedThree() throws Exception {
-       text = text + "3";
-       msg = msg + "3";
+        if(buttonState) {
+            text = text + "3";
+            msg = msg + "3";
+        }
     }
     
     public void clickedFour() throws Exception {
-       text = text + "4";
-       msg = msg + "4";
+       if(buttonState) {
+           text = text + "4";
+           msg = msg + "4";
+       }
     }
     
     public void clickedFive() throws Exception {
-       text = text + "5";
-       msg = msg + "5";
+       if(buttonState) {
+           text = text + "5";
+           msg = msg + "5";
+       }
     }
       
     public void clickedSix() throws Exception {
-       text = text + "6";
-       msg = msg + "6";
+       if(buttonState) {
+           text = text + "6";
+           msg = msg + "6";
+       }
     }
        
     public void clickedSeven() throws Exception {
-       text = text + "7";
-       msg = msg + "7";
+       if(buttonState) {
+            text = text + "7";
+            msg = msg + "7";
+       }
     }
         
     public void clickedEight() throws Exception {
-       text = text + "8";
-       msg = msg + "8";
+       if(buttonState) {
+           text = text + "8";
+           msg = msg + "8";
+       }
     }
          
     public void clickedNine() throws Exception {
-       text = text + "9";
-       msg = msg + "9";
+       if(buttonState) {
+           text = text + "9";
+           msg = msg + "9";
+       }
     }
     
     public void clickedPoint() throws Exception {
-        if(!text.contains(".")) {
+        if(buttonState) {
+            if(!text.contains(".")) {
              text = text + ".";
              msg = msg + ".";
-        }else 
-            msg = msg + "Point cannot be inserted twice in a number\n";
+        }else {
+            error = true;
+            msg = msg + "; Point cannot be inserted twice in a number\n";
+            }
+        }
     }
     
     //Operation Buttons
     /*==================*/
     
     public void backClicked() throws Exception {
-        text = text.substring(0, text.length()-1);
-        msg = ";the number has been edited to: "+text+"\n";
+        if(buttonState) {
+            text = text.substring(0, text.length()-1);
+            msg = msg+ "; the number has been edited to: "+text+"\n";
+        }
     }
     
     public void clickedPlus() throws Exception {
-        msg = msg + " + ";
+        if(buttonState) {
+            msg = msg + " + ";
         if(clearScreen() && minusClicked==true)
             number1 = -Double.parseDouble(text);
         else
@@ -136,11 +230,13 @@ public class CalculatorBean implements Serializable {
         counter++;
         plusClicked = true;
         minusClicked = mulClicked = divClicked = false;
+        } //buttonState
     }
     
     //some issues have here
     public void clickedMinus() throws Exception {
-        msg = msg + " - ";
+        if(buttonState) {
+                msg = msg + " - ";
         if(clearScreen() && minusClicked==true)
             number1 = -Double.parseDouble(text);
         else
@@ -150,23 +246,27 @@ public class CalculatorBean implements Serializable {
         counter++;
         minusClicked = true;
         plusClicked = mulClicked = divClicked = false;
+        } //buttonState
     }
     
     public void clickedMul() throws Exception {
-        msg = msg + " * ";
-        if(clearScreen() && minusClicked==true)
-            number1 = -Double.parseDouble(text);
-        else
-            number1 = Double.parseDouble(text);
+        if(buttonState) {
+            msg = msg + " * ";
+            if(clearScreen() && minusClicked==true)
+                number1 = -Double.parseDouble(text);
+            else
+                number1 = Double.parseDouble(text);
         
         text = "";
         counter++;
         mulClicked = true;
         minusClicked = plusClicked = divClicked = false;
+        } // buttonState
     }
     
     public void clickedDiv() throws Exception {
-        msg = msg + " / ";
+        if(buttonState) {
+            msg = msg + " / ";
         if(clearScreen() && minusClicked==true)
             number1 = -Double.parseDouble(text);
         else
@@ -176,31 +276,40 @@ public class CalculatorBean implements Serializable {
         counter++;
         divClicked = true;
         minusClicked = mulClicked = plusClicked = false;
+        } //buttonState   
     }
     
     public void plusMinus() throws Exception {
-        text = Double.toString(Double.parseDouble(text)*(-1));
-        msg = msg + "The number has been reversed to: "+text+"\n";
-    }
-    
-    public void sqrt() throws Exception {
-        if(Double.parseDouble(text)<0)
-            msg = msg + "negative number is not allowed here.\n";
-        else {
-            text = Double.toString(Math.sqrt(Double.parseDouble(text)));
-            msg = msg + "The square root is: "+text+"\n";
+        if(buttonState) {
+            text = Double.toString(Double.parseDouble(text)*(-1));
+            msg = msg + "; The number has been transformed to: "+text+"\n";
         }
     }
     
+    public void sqrt() throws Exception {
+        if(buttonState) {
+        if(Double.parseDouble(text)<0) {
+            error = true;
+            msg = msg + "; negative number is not allowed here.\n";
+        }else {
+            text = Double.toString(Math.sqrt(Double.parseDouble(text)));
+            msg = msg + "; The square root is: "+text+"\n";
+        }
+        } //buttonState
+    }
+    
     public void screenClear() throws Exception {
+        if(buttonState) {
         msg = "";
         text = "0";
         result = 0;
         plusClicked = minusClicked = mulClicked = divClicked = false;
         counter = 0;
+        } //buttonState
     }
     
     public void clickEquals() throws Exception {
+        if(buttonState) {
         number2 = Double.parseDouble(text);
         if(plusClicked){
             result = (number1 + number2);
@@ -223,8 +332,11 @@ public class CalculatorBean implements Serializable {
             text = Double.toString(result);
             msg = msg + "; output is: "+text+"\n";
             counter = 0;
-        }else
+        }else {
+            error = true;
             msg = msg + "\nOperation Invalid. Please try again.\n";
+        }
+        } //buttonState
     }
     
     public static void main(String args[]) throws Exception {
