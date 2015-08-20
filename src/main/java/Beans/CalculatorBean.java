@@ -8,6 +8,7 @@ package Beans;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -208,6 +209,44 @@ public class CalculatorBean implements Serializable {
         }
     }
     
+    //Scientific Buttons
+    /*==================*/
+    
+    public void clickedSine() throws Exception{
+       if(buttonState) {
+           double sine = Math.sin(Math.toRadians(Double.parseDouble(text)));
+           text = Double.toString(sine);
+           msg = msg + "; sine value is: "+text;
+       }  
+    }
+    public void clickedCosine() throws Exception{
+        if(buttonState) {
+           double cos = Math.cos(Math.toRadians(Double.parseDouble(text)));
+           text = Double.toString(cos);
+           msg = msg + "; cosine value is: "+text;
+       } 
+    }
+    public void clickedTangent() throws Exception{
+        if(buttonState) {
+           double tan = Math.tan(Math.toRadians(Double.parseDouble(text)));
+           text = Double.toString(tan);
+           msg = msg + "; tan value is: "+text;
+       } 
+    }
+    public void clickedPi() throws Exception{
+        if(buttonState) {
+           text = Double.toString(Math.PI);
+           msg = msg + "; pi value is: "+text;
+       } 
+    }
+    
+    public void clickedLog() throws Exception{
+        if(buttonState) {
+           //text = Double.toString(Math.log(Double.parseDouble(text)));
+           //msg = msg + "; pi value is: "+text;
+       } 
+    }
+    
     //Operation Buttons
     /*==================*/
     
@@ -233,7 +272,7 @@ public class CalculatorBean implements Serializable {
         } //buttonState
     }
     
-    //some issues have here
+    
     public void clickedMinus() throws Exception {
         if(buttonState) {
                 msg = msg + " - ";
@@ -300,11 +339,12 @@ public class CalculatorBean implements Serializable {
     
     public void screenClear() throws Exception {
         if(buttonState) {
-        msg = "";
-        text = "0";
-        result = 0;
-        plusClicked = minusClicked = mulClicked = divClicked = false;
-        counter = 0;
+            msg = "";
+            text = "0";
+            result = 0;
+            plusClicked = minusClicked = mulClicked = divClicked = false;
+            counter = 0;
+            buttonState = true;
         } //buttonState
     }
     
@@ -337,6 +377,10 @@ public class CalculatorBean implements Serializable {
             msg = msg + "\nOperation Invalid. Please try again.\n";
         }
         } //buttonState
+    } //equals
+    
+    public void trigonoCalc() throws Exception {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("Trigonometry.xhtml");
     }
     
     public static void main(String args[]) throws Exception {

@@ -1,69 +1,52 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Analytic</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-        <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
-        <link href='style.css' rel="stylesheet" type="text/css"/>
-    </h:head>
-    <h:body>
+    <!--
         <h:form>
-            <p:panel id="background" style="background-color: whitesmoke; width: 90%;height: 100%;position: absolute; left: 5%; top: 0%">
-                <p:panel id="calculatorPanel" header="CALCULATOR" style="top: 0%;background-color: #e7eff8;border-radius: 9px; font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; left:50%;width:30%" toggleable="true">
+         <p:panel id="background" style="background-color: whitesmoke; width: 90%;height: 100%;position: absolute; left: 5%; top: 0%">
+                <p:panel id="calculatorPanel" header="CALCULATOR" style="top: 0%;background-color: #e7eff8;border-radius: 9px; font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; left:50%;width:40%" toggleable="true">
                     <p:messages id="msg"/>
-                    <p:inputTextarea id="display" disabled="false" placeholder="carry on" value="#{calcBean.text}" rows="2" cols="4" style="padding-top: 15px; border-color:  #99ccff; width: 97%;font-family:  monospace; font-variant-caps:  all-small-caps; font-size:  large; top: 15px; color: #{calcBean.fontColor}; background-color: #{calcBean.backgroundColor}; opacity: 0.7; border-radius: 15px;border-width: 2px"/>
+                    <p:inputTextarea id="display" disabled="false" placeholder="carry on" value="#{calcBean.text}" rows="2" cols="4" style="padding-top: 15px; border-color: #99ccff; width: 97%;font-family:  monospace; font-variant-caps:  all-small-caps; font-size:  large; top: 15px; color: #{calcBean.fontColor}; background-color: #{calcBean.backgroundColor}; opacity: 0.7; border-radius: 15px;border-width: 2px"/>
                     <p:commandButton value="ON/OFF" update="calculatorPanel" actionListener="#{calcBean.onOff()}"  style="background-color: #d0422d;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #e7eff8"></p:commandButton>
                         <p:separator/>
-                        <p:panelGrid columns="4" style="width: 100%; border: hidden">
-                            <p:commandButton id="one" update="calculatorPanel" value="1" actionListener="#{calcBean.clickedOne()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
+                        <p:panelGrid columns="5" style="width: 100%; border: hidden">
+                        <p:commandButton id="one" update="calculatorPanel" value="1" actionListener="#{calcBean.clickedOne()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="two" update="calculatorPanel" value="2" actionListener="#{calcBean.clickedTwo()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px; font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="three" update="calculatorPanel" value="3" actionListener="#{calcBean.clickedThree()}" style="box-shadow: 1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="plus" update="calculatorPanel" value="+" actionListener="#{calcBean.clickedPlus()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
-                    
+                        <p:commandButton id="sin" update="calculatorPanel" value="sin" actionListener="#{calcBean.clickedSine()}" style="left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #6699ff"></p:commandButton>
+                        
                         <p:commandButton id="four" update="calculatorPanel" value="4" actionListener="#{calcBean.clickedFour()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="five" update="calculatorPanel" value="5" actionListener="#{calcBean.clickedFive()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="six" update="calculatorPanel" value="6" actionListener="#{calcBean.clickedSix()}" style="box-shadow: 1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="minus" update="calculatorPanel" value="-" actionListener="#{calcBean.clickedMinus()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
-                    
+                        <p:commandButton id="cos" update="calculatorPanel" value="cos" actionListener="#{calcBean.clickedCosine()}" style="left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #6699ff"></p:commandButton>
+                        
                         <p:commandButton id="seven" update="calculatorPanel" value="7" actionListener="#{calcBean.clickedSeven()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="eight" update="calculatorPanel" value="8" actionListener="#{calcBean.clickedEight()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="nine" update="calculatorPanel" value="9" actionListener="#{calcBean.clickedNine()}" style="box-shadow: 1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="asterisk" update="calculatorPanel" value="*" actionListener="#{calcBean.clickedMul()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
-                    
+                        <p:commandButton id="tan" update="calculatorPanel" value="tan" actionListener="#{calcBean.clickedTangent()}" style="left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #6699ff"></p:commandButton>
+                        
                         <p:commandButton id="zero" update="calculatorPanel" value="0" actionListener="#{calcBean.clickedZero()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="cancel" update="calculatorPanel" value="C" actionListener="#{calcBean.screenClear()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="equals" update="calculatorPanel" value="=" actionListener="#{calcBean.clickEquals()}" style="box-shadow: 1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton id="slash" update="calculatorPanel" value="/" actionListener="#{calcBean.clickedDiv()}" style="box-shadow: -1px 1px .4px 1px #ff6666;left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
+                        <p:commandButton id="log" update="calculatorPanel" value="log" actionListener="#{calcBean.clickedLog()}" style="left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #6699ff"></p:commandButton>
+                        
                         
                         <p:commandButton id="dot" update="calculatorPanel" value="." actionListener="#{calcBean.clickedPoint()}" style="box-shadow: 1px 1px .4px 1px #ff6666;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color:  #666666"></p:commandButton>
                         <p:commandButton value="BACK" update="calculatorPanel" actionListener="#{calcBean.backClicked()}"  style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
                         <p:commandButton value="SQRT" update="calculatorPanel" actionListener="#{calcBean.sqrt()}" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
                         <p:commandButton value="+/-" update="calculatorPanel" actionListener="#{calcBean.plusMinus()}" style="font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #6699ff;left: 9px"></p:commandButton>
-                    </p:panelGrid>
+                        <p:commandButton id="pi" update="calculatorPanel" value="pi" actionListener="#{calcBean.clickedPi()}" style="left: 18px;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium; border-radius: 24px; height: 35px; color: whitesmoke; background-color: #6699ff"></p:commandButton>
+                        
+                        </p:panelGrid>
                     <p:separator/>
                         <div style="font-weight: bold; font-size: 100%;font-variant-caps:  all-small-caps">Operation List:</div>
                         <p:inputTextarea id="operationList" value="#{calcBean.msg}" style="overflow-y: scroll;padding-top: 5px; border-color:  #99ccff; width: 97%;font-family:  monospace; font-variant-caps:  all-small-caps; font-size: medium; top: 7px; color: black; border-radius: 5px;border-width: 2px"></p:inputTextarea>
                     <p:separator/>
                         <div id="footer"><a href='https://de.linkedin.com/in/ashique600'>Ashique's ;) <i class="fa fa-linkedin"></i></a></div>
                 </p:panel><br/>
-                <p:commandButton id="trigono_calc" value="Trigonometric Calculator" actionListener="#{calcBean.trigonoCalc()}"  style="background-color: #d0422d;font-family: monospace; font-variant-caps:  all-small-caps; font-size: medium;border-radius: 15px;border-color: #99ccff"></p:commandButton>
+                
                
-                <div id="CurrencyAnalysis" style="border-color: black; position: fixed;top: 0% ; left: 40%;">
-                    <embed width="700px" height="600px" src="http://currencyanalysis-apps2146.rhcloud.com/" />
-                </div>
-                <a id="myJS" href="http://thesisqa-appshouse.rhcloud.com/">My JavaScript Enthusiasm is here.</a>
-                <p id="bitbucket"><a href="https://chowdhury_ashique@bitbucket.org/chowdhury_ashique/currencyanalysis_beta.git">Find this on my BitBucket</a></p>
-                <p id="msg">click on the object to join my JavaScript enthusiasm :) <br/> If you fail don't worry: <a href="http://thesisqa-appshouse.rhcloud.com/">Click HERE</a> / <a id="hideBar">Ignore.</a></p>
             </p:panel>
-        </h:form>
-        
-        <a href="https://github.com/AshAce007/MiniApps/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"/></a>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js" type="text/javascript"></script>
-        <script src="action.js" type="text/javascript"></script>
-    </h:body>
-</html>
-
+            </h:form>
+        -->
