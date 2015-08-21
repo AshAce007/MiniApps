@@ -216,34 +216,34 @@ public class CalculatorBean implements Serializable {
        if(buttonState) {
            double sine = Math.sin(Math.toRadians(Double.parseDouble(text)));
            text = Double.toString(sine);
-           msg = msg + "; sine value is: "+text;
+           msg = msg + "; sine value is: "+text+"\n";
        }  
     }
     public void clickedCosine() throws Exception{
         if(buttonState) {
            double cos = Math.cos(Math.toRadians(Double.parseDouble(text)));
            text = Double.toString(cos);
-           msg = msg + "; cosine value is: "+text;
+           msg = msg + "; cosine value is: "+text+"\n";
        } 
     }
     public void clickedTangent() throws Exception{
         if(buttonState) {
            double tan = Math.tan(Math.toRadians(Double.parseDouble(text)));
            text = Double.toString(tan);
-           msg = msg + "; tan value is: "+text;
+           msg = msg + "; tan value is: "+text+"\n";
        } 
     }
     public void clickedPi() throws Exception{
         if(buttonState) {
            text = Double.toString(Math.PI);
-           msg = msg + "; pi value is: "+text;
+           msg = msg + "; pi value is: "+text+"\n";
        } 
     }
     
     public void clickedLog() throws Exception{
         if(buttonState) {
-           //text = Double.toString(Math.log(Double.parseDouble(text)));
-           //msg = msg + "; pi value is: "+text;
+           text = Double.toString(Math.log(Double.parseDouble(text)));
+           msg = msg + "; log value is: "+text+"\n";
        } 
     }
     
@@ -380,7 +380,7 @@ public class CalculatorBean implements Serializable {
     } //equals
     
     public void trigonoCalc() throws Exception {
-        FacesContext.getCurrentInstance().getExternalContext().redirect("Trigonometry.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("404.html");
     }
     
  
