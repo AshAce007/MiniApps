@@ -383,7 +383,5 @@ public class CalculatorBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().redirect("Trigonometry.xhtml");
     }
     
-    public static void main(String args[]) throws Exception {
-        new CalculatorBean().backClicked();
-    }
+ 
 }
